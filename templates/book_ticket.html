@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header>
+        <h1>Available Events</h1>
+    </header>
+
+    <div class="event-list">
+        {% for event in events %}
+        <div class="event">
+            <h2>{{ event.name }}</h2>
+            <p>{{ event.description }}</p>
+            <p><strong>Location:</strong> {{ event.location }}</p>
+            <p><strong>Date:</strong> {{ event.date }}</p>
+            <form action="{% url 'register_for_event' event.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Your Ticket for {{ ticket.event.name }}</h1>
+    <p><strong>Event:</strong> {{ ticket.event.name }}</p>
+    <p><strong>Date:</strong> {{ ticket.event.date }}</p>
+    <p><strong>Location:</strong> {{ ticket.event.location }}</p>
+
+    <div>
+        <img src="{{ ticket.qr_code.url }}" alt="QR Code for {{ ticket.event.name }}">
+    </div>
+{% endblock %}
